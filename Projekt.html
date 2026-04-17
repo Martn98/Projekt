@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta type="author" value="Martin Pískovský + ChatGPT 5.3">
+    <title>Sporty pro děti</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://images.unsplash.com/photo-1517649763962-0c623066013b') no-repeat center center/cover;
+            color: #333;
+        }
+
+        header {
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        nav {
+            background: #0d47a1;
+            padding: 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 20px;
+            background: rgba(255,255,255,0.95);
+            margin: 20px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        /* NADPIS + BACK BUTTON NA STEJNÉ ŘÁDCE */
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 2px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-top {
+            text-decoration: none;
+            font-weight: bold;
+            color: #0d47a1;
+            font-size: 14px;
+        }
+
+        .back-top:hover {
+            text-decoration: underline;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            width: 30%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+
+        .card:hover {
+            background: #e3f2fd;
+        }
+
+        .content {
+            display: none;
+            margin-top: 10px;
+        }
+
+        img {
+            max-width: 60%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            border: none;
+            background: #0d47a1;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #1565c0;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #0d47a1;
+            color: white;
+        }
+    </style>
+</head>
+
+<body id="top">
+
+<header>
+    <h1>Sporty pro děti</h1>
+    <p>Najdi ideální sport pro své dítě na jednom místě</p>
+</header>
+
+<nav>
+    <a href="#fotbal">Fotbal</a>
+    <a href="#plavani">Plavání</a>
+    <a href="#tenis">Tenis</a>
+</nav>
+
+<section id="fotbal">
+    <h2>Fotbal <a class="back-top" href="#top">Zpět nahoru</a></h2>
+    <img src="https://stiripesurse.md/wp-content/uploads/fotbal-19.jpg" alt="Fotbal děti">
+    <p>Skvělý týmový sport pro rozvoj kondice a spolupráce.</p>
+    <button onclick="alert('Přihláška odeslána!')">Přihlásit dítě</button>
+</section>
+
+<section id="plavani">
+    <h2>Plavání <a class="back-top" href="#top">Zpět nahoru</a></h2>
+    <img src="https://ctfs.ceskatelevize.cz/img/EHXbPQSDcTF5kWLJ9_rEVswQamXWMcW2Qeu1waVMjTA/rs:fit:1005:565/plain/s3/porady-s3/648b0352dcbc54d8f70dad9d/placeholder/plavani-1712157670485.jpeg" alt="Plavání děti">
+    <p>Zdravý sport vhodný pro všechny věkové kategorie.</p>
+    <button onclick="alert('Přihláška odeslána!')">Přihlásit dítě</button>
+</section>
+
+<section id="tenis">
+    <h2>Tenis <a class="back-top" href="#top">Zpět nahoru</a></h2>
+    <img src="https://4.bp.blogspot.com/-YQy2jTTQK6M/W8Ek34bZJKI/AAAAAAAAAAg/kphMteZw9ZYKMvC4i7KEgkq40BMio-zmwCK4BGAYYCw/s1600/tenis.jpg" alt="Tenis děti">
+    <p>Individuální sport rozvíjející rychlost a koordinaci.</p>
+    <button onclick="alert('Přihláška odeslána!')">Přihlásit dítě</button>
+</section>
+
+<section>
+    <h2>Proč sportovat? (klikni na kartu)</h2>
+    <div class="card-container">
+        <div class="card" onclick="toggle(this)">
+            Zdraví
+            <div class="content">Sport zlepšuje fyzickou kondici a imunitu.</div>
+        </div>
+        <div class="card" onclick="toggle(this)">
+            Přátelé
+            <div class="content">Děti si najdou nové kamarády.</div>
+        </div>
+        <div class="card" onclick="toggle(this)">
+            Disciplína
+            <div class="content">Sport učí pravidelnosti a zodpovědnosti.</div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Sporty pro děti</p>
+</footer>
+
+<script>
+    function toggle(card) {
+        const content = card.querySelector('.content');
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
+
+</body>
+</html>
